@@ -26,6 +26,15 @@ type PersonSIPAddress struct {
 	Primary     bool   `json:"primary,omitempty"` // SIP Address flag
 }
 
+type PersonAddress struct {
+	Country       string `json:"country,omitempty"`       // Address country
+	Locality      string `json:"locality,omitempty"`      // Address locality
+	Region        string `json:"region,omitempty"`        // Address region
+	StreetAddress string `json:"streetAddress,omitempty"` // Address street
+	AddressType   string `json:"type,omitempty"`          // Address type
+	PostalCode    string `json:"postalCode,omitempty"`    // Address postalCode
+}
+
 // People is the List of Persons
 type People struct {
 	Items []Person `json:"items,omitempty"`
@@ -48,7 +57,9 @@ type Person struct {
 	ID            string              `json:"id,omitempty"`            // Person ID.
 	Emails        []string            `json:"emails,omitempty"`        // Person email array.
 	SIPAddresses  []PersonSIPAddress  `json:"sipAddresses,omitempty"`  // Person SIP Addresses
-	PhoneNumbers  []PersonPhoneNumber `json:"phoneNumbers,omitempty"`  //Person phone numbers
+	PhoneNumbers  []PersonPhoneNumber `json:"phoneNumbers,omitempty"`  // Person phone numbers
+	Extension     string              `json:"extension,omitempty"`     // Person extension.
+	LocationID    string              `json:"locationId,omitempty"`    // Person location ID.
 	DisplayName   string              `json:"displayName,omitempty"`   // Person display name.
 	NickName      string              `json:"nickName,omitempty"`      // Person nickname.
 	FirstName     string              `json:"firstName,omitempty"`     // Person first name.
@@ -57,6 +68,11 @@ type Person struct {
 	OrgID         string              `json:"orgId,omitempty"`         // Person organization ID.
 	Roles         []string            `json:"roles,omitempty"`         // Person roles.
 	Licenses      []string            `json:"licenses,omitempty"`      // Person licenses.
+	Department    string              `json:"department,omitempty"`    // Person department.
+	Manager       string              `json:"manager,omitempty"`       // Person manager.
+	ManagerID     string              `json:"managerId,omitempty"`     // Person manager ID.
+	Title         string              `json:"title,omitempty"`         // Person title.
+	Addresses     []PersonAddress     `json:"addresses,omitempty"`     // Persons adresses.
 	Created       time.Time           `json:"created,omitempty"`       // Person creation date/time.
 	LastModified  time.Time           `json:"lastModified,omitempty"`  // Person last modified
 	TimeZone      string              `json:"timeZone,omitempty"`      // Person time zone.
